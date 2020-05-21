@@ -1,23 +1,39 @@
 package hr.tvz.prtenjaca.studapp.domain;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-import org.springframework.http.ResponseEntity;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Student {
+@Entity
+public class Student implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
     private String lastName;
     private String jmbag;
     private LocalDate dateOfBirth;
-    private Integer numberOfECTS;
+    private int numberOfEcts;
 
-    public Student(String firstName, String lastName,  String jmbag, LocalDate dateOfBirth, Integer numberOfECTS) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.jmbag = jmbag;
-        this.dateOfBirth = dateOfBirth;
-        this.numberOfECTS = numberOfECTS;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "Student_Course",
+            joinColumns = { @JoinColumn(name = "student_id") },
+            inverseJoinColumns = { @JoinColumn(name = "course_id") })
+    private List<Course> courses = new ArrayList<>();
+
+    public Student() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -52,12 +68,12 @@ public class Student {
         this.jmbag = jmbag;
     }
 
-    public Integer getNumberOfECTS() {
-        return numberOfECTS;
+    public int getNumberOfEcts() {
+        return numberOfEcts;
     }
 
-    public void setNumberOfECTS(Integer ects) {
-        this.numberOfECTS = numberOfECTS;
+    public void setNumberOfEcts(int numberOfEcts) {
+        this.numberOfEcts = numberOfEcts;
     }
 
     @Override
@@ -67,7 +83,7 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", birthday=" + dateOfBirth +
                 ", jmbag='" + jmbag + '\'' +
-                ", ects=" + numberOfECTS +
+                ", ects=" + numberOfEcts +
                 '}';
     }
 }

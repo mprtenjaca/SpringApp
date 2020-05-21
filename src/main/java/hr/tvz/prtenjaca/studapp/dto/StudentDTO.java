@@ -1,21 +1,27 @@
 package hr.tvz.prtenjaca.studapp.dto;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-
 public class StudentDTO {
 
+    private String firstName;
+    private String lastName;
     private String jmbag;
-
     private Integer numberOfECTS;
     private boolean tuitionShouldBePaid = false;
 
-    public StudentDTO(String jmbag, Integer numberOfECTS, boolean tuitionShouldBePaid) {
+    public StudentDTO(String firstName, String lastName, String jmbag, Integer numberOfECTS, boolean tuitionShouldBePaid) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.jmbag = jmbag;
         this.numberOfECTS = numberOfECTS;
         this.tuitionShouldBePaid = tuitionShouldBePaid;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
     public String getJMBAG() {
         return jmbag;
     }
@@ -29,9 +35,11 @@ public class StudentDTO {
     @Override
     public String toString() {
         return "StudentDTO{" +
-                "jmbag='" + jmbag + '\'' +
-                ", ects=" + numberOfECTS +
-                ", payingTuitionFees=" + tuitionShouldBePaid +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", jmbag='" + jmbag + '\'' +
+                ", numberOfECTS=" + numberOfECTS +
+                ", tuitionShouldBePaid=" + tuitionShouldBePaid +
                 '}';
     }
 }

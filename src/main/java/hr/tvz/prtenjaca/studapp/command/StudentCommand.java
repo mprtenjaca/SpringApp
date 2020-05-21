@@ -17,7 +17,6 @@ public class StudentCommand {
     @Pattern(message = "JMBAG must have 10 digits", regexp = "[\\d]{10}")
     private String jmbag;
 
-    @JsonFormat(pattern = "dd.MM.yyyy.")
     @NotNull(message = "Date of birth must be entered")
     @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
@@ -25,7 +24,7 @@ public class StudentCommand {
     @NotNull(message = "Number of ECTS points must be entered")
     @PositiveOrZero(message = "Number of ECTS must be entered as a positive integer")
     @Max(message = "Number of ECTS can not be higher than 480", value = 480)
-    private Integer numberOfECTS;
+    private int numberOfEcts;
 
     public String getFirstName() {
         return firstName;
@@ -43,7 +42,11 @@ public class StudentCommand {
         return dateOfBirth;
     }
 
-    public Integer getNumberOfECTS() {
-        return numberOfECTS;
+    public int getNumberOfEcts() {
+        return numberOfEcts;
+    }
+
+    public void setJmbag(String jmbag) {
+        this.jmbag = jmbag;
     }
 }
