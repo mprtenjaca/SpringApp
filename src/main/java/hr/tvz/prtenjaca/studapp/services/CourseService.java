@@ -11,6 +11,4 @@ public interface CourseService {
 
     List<CourseDTO> findAll();
     List<CourseDTO> findByStudentsJmbag(String jmbag);
-
-    List<CourseDTO> findByNumberOfEcts(int numberOfEcts);
 }

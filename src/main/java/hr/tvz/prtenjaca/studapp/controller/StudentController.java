@@ -26,8 +26,8 @@ public class StudentController {
         return studentService.findAll();
     }
 
-    @ResponseStatus(HttpStatus.FOUND)
-    @GetMapping(params = "JMBAG")
+
+    @GetMapping(params = "JMBAG", produces = "application/json")
     public ResponseEntity<StudentDTO> findStudentByJMBAG(@Valid @RequestParam final String JMBAG) {
         return studentService.findStudentByJMBAG(JMBAG).map(
                 studentDTO -> ResponseEntity

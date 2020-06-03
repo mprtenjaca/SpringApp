@@ -3,7 +3,7 @@ VALUES ('Tomislav', 'Horvat', '1995-10-08', '0246077123', 120);
 INSERT INTO student(first_name, last_name, date_of_birth, jmbag, number_of_ects)
 VALUES ('Marija', 'Kovačević', '1995-10-05', '0246077222', 90);
 INSERT INTO student(first_name, last_name, date_of_birth, jmbag, number_of_ects)
-VALUES ('Novak', 'Đoković', '1990-10-03', '0246077242', 100);
+VALUES ('Marko', 'Prtenjača', '1997-10-03', '0246077242', 100);
 
 INSERT INTO course (name, number_of_ects)
 VALUES ('Web aplikacije u Javi', 6);

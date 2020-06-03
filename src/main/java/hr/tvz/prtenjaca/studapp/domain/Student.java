@@ -25,8 +25,10 @@ public class Student implements Serializable {
             inverseJoinColumns = { @JoinColumn(name = "course_id") })
     private List<Course> courses = new ArrayList<>();
 
+
     public Student() {
     }
+
 
     public Long getId() {
         return id;

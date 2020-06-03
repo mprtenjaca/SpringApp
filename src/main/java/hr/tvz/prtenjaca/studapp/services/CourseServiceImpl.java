@@ -27,11 +27,6 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findByStudentsJmbag(jmbag).stream().map(this::mapCourseToDTO).collect(Collectors.toList());
     }
 
-    @Override
-    public List<CourseDTO> findByNumberOfEcts(int numberOfEcts) {
-        return courseRepository.findByNumberOfEcts(numberOfEcts).stream().map(this::mapCourseToDTO).collect(Collectors.toList());
-    }
-
     private CourseDTO mapCourseToDTO(final Course course){
         return new CourseDTO(course.getName(), course.getNumberOfEcts());
     }

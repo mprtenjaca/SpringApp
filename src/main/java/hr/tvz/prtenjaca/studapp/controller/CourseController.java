@@ -28,10 +28,4 @@ public class CourseController {
     public List<CourseDTO> findByStudentsJmbag(@PathVariable String jmbag) {
         return courseService.findByStudentsJmbag(jmbag);
     }
-
-    @GetMapping(value = "/ects/{ects}", produces = "application/json")
-    public List<CourseDTO> findByNumberOfEcts(@PathVariable int ects){
-        return courseService.findByNumberOfEcts(ects);
-    }
-
 }
