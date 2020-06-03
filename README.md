@@ -5,7 +5,7 @@
 
 • Tomcat poslužitelj (embedded)
 
-• H2 baza podataka
+• H2 database
 
 • Spring MVC
 
