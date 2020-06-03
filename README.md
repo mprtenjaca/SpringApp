@@ -2,7 +2,9 @@
 ## Server and browser communication
 
 • IntelliJ
-• Tomcat poslužitelj (ugrađeni)
+
+• Tomcat poslužitelj (embedded)
+
 • H2 baza podataka
 
 • Spring MVC
